@@ -14,6 +14,17 @@
     <a-scene
     background="color:#0f011a">
 
+
+    <a-assets>
+        <a-asset-item id="turtle-obj" src="TORTOISE.glb"></a-asset-item>
+s    </a-assets>
+    <a-assets>
+        <a-asset-item id="po" src="po.glb"></a-asset-item>
+    </a-assets>
+
+    <a-entity gltf-model="#turtle-obj" position="0 0.2 -3"></a-entity>
+    <a-entity gltf-model="#po" position="0 0.5 2" scale="0.03 0.03 0.03" rotation="270 180 0"></a-entity>
+
     <a-sound src="src: url(click.mp3)" loop="true" autoplay="true" position="0 2 5"></a-sound>
 
 
