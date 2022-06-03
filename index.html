@@ -14,18 +14,23 @@
     <a-scene
     background="color:#0f011a">
 
-    <a-assets>
+
+    <!-- <a-assets>
         <a-asset-item id="turtle-obj" src="turtoise/TORTOISE.OBJ"></a-asset-item>
         <a-asset-item id="turtle-mtl" src="turtoise/TORTOISE.MTL"></a-asset-item>
-    </a-assets>
+    </a-assets> -->
     <a-assets>
-        <a-asset-item id="po" src="po.obj"></a-asset-item>
+        <a-asset-item id="po" src="po.glb"></a-asset-item>
     </a-assets>
 
-    <a-entity obj-model="obj: #turtle-obj; mtl: #turtle-mtl" position="0 0.2 -3"></a-entity>
-    <a-entity obj-model="obj: #po" position="0 0.5 2" scale="0.03 0.03 0.03" rotation="270 180 0"></a-entity>
+    <!-- <a-entity obj-model="obj: #turtle-obj; mtl: #turtle-mtl" position="0 0.2 -3"></a-entity> -->
+    <a-entity gltf-model="#po" position="0 0.5 2" scale="0.03 0.03 0.03" rotation="270 180 0"></a-entity>
 
     <a-sound src="src: url(click.mp3)" loop="true" autoplay="true" position="0 2 5"></a-sound>
+
+
+
+
     <a-entity star-system="radius: 200"></a-entity>
         <a-light type="directional"
         intensity="0.3"
@@ -53,7 +58,6 @@
             radius-bottom="0.15"
             radius-top="0.07"
             height="2"
-            color=""
             position="-0.65 0 0"></a-cone>
 
             <a-cone id="pillar-right"
