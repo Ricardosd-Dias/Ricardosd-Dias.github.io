@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VR101 - Door to the West</title>
+    <meta name="description" content="VR101 Nature Scene: Step 1 Starter">
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alvinwan/aframe-low-poly@0.0.5/dist/aframe-low-poly.min.js"></script>
+    <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
+    <script src="ocean.js"></script>
+</head>
+
+<body>
+    <a-scene
+    background="color:#0f011a">
+
+    <a-assets>
+        <a-asset-item id="turtle-obj" src="turtoise/TORTOISE.OBJ"></a-asset-item>
+        <a-asset-item id="turtle-mtl" src="turtoise/TORTOISE.MTL"></a-asset-item>
+    </a-assets>
+    <a-assets>
+        <a-asset-item id="po" src="po.obj"></a-asset-item>
+    </a-assets>
+
+    <a-entity obj-model="obj: #turtle-obj; mtl: #turtle-mtl" position="0 0.2 -3"></a-entity>
+    <a-entity obj-model="obj: #po" position="0 0.5 2" scale="0.03 0.03 0.03" rotation="270 180 0"></a-entity>
+
+    <a-sound src="src: url(click.mp3)" loop="true" autoplay="true" position="0 2 5"></a-sound>
+    <a-entity star-system="radius: 200"></a-entity>
+        <a-light type="directional"
+        intensity="0.3"
+        color="6909b3"
+        position="5 3 1"
+        light="castShadow:true;"
+        ></a-light>
+
+        <a-light type="directional"
+        intensity="0.2"
+        color="#FFF"
+        position="5 2 1"
+        light="castShadow:true;"
+        ></a-light>
+
+        <a-light type="ambient"
+        intensity="0.15"
+        color="#6909b3"
+        ></a-light>
+
+
+
+        <a-entity id="temple" shadow position="0 1 -3">
+            <a-cone id="pillar-left"
+            radius-bottom="0.15"
+            radius-top="0.07"
+            height="2"
+            color=""
+            position="-0.65 0 0"></a-cone>
+
+            <a-cone id="pillar-right"
+            radius-bottom="0.15"
+            radius-top="0.07"
+            height="2"
+            position="0.65 0 0"></a-cone>
+
+            <a-box id="bar-lower"
+            scale="2 0.15 0.1"
+            position="0 0.65 0"></a-box>
+
+            <a-box id="bar-higher"
+            scale="2.2 0.2 0.25"
+            position="0 1.05 0"></a-box>
+
+            <a-box id="cap-higher"
+            scale="2.6 0.05 0.3"
+            position="0 1.15 0"></a-box>
+        </a-entity>
+
+        <a-entity id="lantern-center" shadow position="0 1 -3"
+        animation__position="property:position;
+        from:0 1 -3;
+        to:-1 2 -4;
+        loop: true;
+        dir:alternate;
+        dur:8500;"
+        animation__rotation="property:rotation;
+        from:5 10 5;
+        to:-10 5 -5;
+        loop:true;
+        dir:alternate;
+        dur:2000;">
+            <a-cone id="lantern-cone"
+            segments-height="1"
+            segments-radial="4"
+            flat-shading="true"
+            radius-bottom="0.1"
+            height="0.09"
+            position="0 0.16 0"
+            rotation="0 45 0"></a-cone>
+
+            <a-box id="lantern-roof"
+            scale="0.2 0.02 0.2"
+            position="0 0.1 0"></a-box>
+
+            <a-box id="lantern-bottom"
+            scale="0.15 0.02 0.15"></a-box>
+
+            <a-sphere id="lantern-orb"
+            radius=0.03
+            position="0 0.05 0"
+            opacity="1"
+            emissive="#09edda"
+            animation__opacity="property: opacity;
+            from: 0.25;
+            to: 1;
+            loop: true;
+            dir: alternate;"
+            ></a-sphere>
+
+            <a-light id="lantern-light"
+            type="point"
+            intensity="0.2"
+            position="0 0.5 0"
+            color="#09edda"
+            light="castShadow:true;"
+            animation_intensity="property: intensity;
+            from:0.5;
+            to:0.6;
+            loop:true;
+            dir:alternate;"
+            animation__distance="property:animation__distance;
+            from:1;
+            to:2;
+            loop:true;
+            dir:alternate;"></a-light>
+        </a-entity>
+
+        <a-entity id="lantern-left"
+        clone="#lantern-center"
+        position="-1.25 0.5 -3.5"></a-entity>
+
+        <a-entity id="lantern-right"
+        clone="#lantern-center"
+        position="1.5 2 -2.5"></a-entity>
+
+
+    <!-- <a-plane shadow color="#841fdd" width="100" height="100" rotation="-90 0 0"></a-plane> -->
+    <a-ocean
+    position="0 0.1 0"
+    shadow
+    depth="50"
+    width="50"
+    amplitude="0"
+    amplitude-variance="0.2"
+    speed="1.5"
+    speed-variance="1"
+    opacity="1"
+    density="50"
+    color="#841fde"></a-ocean>
+
+    <a-ocean
+    position="0 0.1 0"
+    shadow
+    depth="50"
+    width="50"
+    opacity="0.5"
+    amplitude="0"
+    amplitude-variance="0.3"
+    speed="1.5"
+    speed-variance="1"
+    density="50"
+    color="#841fde">
+    </a-ocean>
+    </a-scene>
+</body>
+</html>
